@@ -1,0 +1,75 @@
+---
+import ListItem from "../timeline/ListItem.astro";
+import Delta from "../../assets/proyectos/delta.webp";
+import Monster from "../../assets/proyectos/monster.webp";
+import Next from "../../assets/iconos/Next.astro";
+import Tailwind from "../../assets/iconos/Tailwind.astro";
+import AstroIcon from "../../assets/iconos/AstroIcon.astro";
+import React from "../../assets/iconos/React.astro";
+import Prisma from "../../assets/iconos/Prisma.astro";
+import PostgreSQL from "../../assets/iconos/PostgreSQL.astro";
+
+const PROJECTS = [
+  {
+    title: "Delta",
+    description:
+      "Plataforma que ayuda a usuarios universitarios a evaluar la calidad de su sueño a través de un test personalizado. La plataforma identifica problemas como insomnio, apnea del sueño y somnolencia diurna, proporcionando consejos personalizados y recursos educativos sobre la importancia del descanso para el rendimiento académico.",
+    image: Delta,
+    alt: "Imagen de la pantalla principal del proyecto Delta",
+    href: "https://delta-inc.vercel.app/",
+    icon: [AstroIcon, Tailwind, React, Prisma, PostgreSQL],
+  },
+  {
+    title: "Monster Gym",
+    description:
+      "Es una plataforma de gestión empresarial diseñado específicamente para gimnasios que permite administrar clientes, pagos, membresías y usuarios de forma eficiente. La aplicación incluye un dashboard interactivo con métricas en tiempo real, gestión de roles y autenticación segura.",
+
+    image: Monster,
+    alt: "Imagen de la pantalla principal del dashboard administrativo de un gym",
+    href: "https://github.com/angeltorres02/gym-management",
+    icon: [Next, Tailwind, Prisma, PostgreSQL],
+  },
+];
+---
+
+<section
+  class="min-h-full bg-linear-to-b from-transparent to-black flex flex-col text-white items-center"
+>
+  <div class="mt-20 w-[60%] flex justify-center flex-col text-pretty mb-10">
+    <h2 class="text-5xl font-medium tracking-tight">
+      <span class="title text-transparent animate-gradient">Proyectos</span>
+    </h2>
+    <ul class="mt-10 flex flex-col w-full items-center justify-between ml-2">
+      {
+        PROJECTS.map((item) => (
+          <ListItem
+            description={item.description}
+            image={item.image}
+            alt={item.alt}
+            href={item.href}
+            icon={item.icon}
+          >
+            {item.title}
+          </ListItem>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style is:global>
+  .title {
+    background: linear-gradient(
+      to left,
+      #fff,
+      #888,
+      #fff,
+      #888,
+      #fff,
+      #888,
+      #fff
+    );
+    background-clip: text;
+    background-size: 300% 300%;
+  }
+</style>
