@@ -1,0 +1,16 @@
+---
+const { name, icon } = Astro.props;
+---
+
+<div
+  class="w-50 h-40 bg-transparent border-[1px] border-neutral-800 rounded-2xl flex flex-col gap-2 justify-center items-center hover:from-neutral-900 hover:to-transparent transition-all relative group"
+>
+  <div
+    class="absolute opacity-0 bg-linear-to-t from-neutral-900 to-transparent hover:opacity-100 transition-all inset-0 w-full h-full rounded-2xl group-hover:opacity-100"
+  >
+  </div>
+  <div class="z-10 flex flex-col justify-center items-center gap-2">
+    <p class="text-[#ccc] text-2xl font-light">{name}</p>
+    {icon && icon.map((Icon: any) => <Icon size={64} />)}
+  </div>
+</div>
