@@ -1,0 +1,100 @@
+---
+import AstroIcon from "../../assets/iconos/AstroIcon.astro";
+import CSS from "../../assets/iconos/CSS.astro";
+import Express from "../../assets/iconos/Express.astro";
+import Figma from "../../assets/iconos/Figma.astro";
+import Git from "../../assets/iconos/Git.astro";
+import GithubIcon from "../../assets/iconos/GithubIcon.astro";
+import HTML from "../../assets/iconos/HTML.astro";
+import Java from "../../assets/iconos/Java.astro";
+import JavaScript from "../../assets/iconos/JavaScript.astro";
+import Next from "../../assets/iconos/Next.astro";
+import Node from "../../assets/iconos/Node.astro";
+import PostgreSQL from "../../assets/iconos/PostgreSQL.astro";
+import Prisma from "../../assets/iconos/Prisma.astro";
+import React from "../../assets/iconos/React.astro";
+import Springboot from "../../assets/iconos/Springboot.astro";
+import Tailwind from "../../assets/iconos/Tailwind.astro";
+import TechGrid from "../tech/TechGrid.astro";
+
+const techs = [
+  {
+    name: "HTML",
+    icon: [HTML],
+  },
+  {
+    name: "CSS",
+    icon: [CSS],
+  },
+  {
+    name: "JavaScript",
+    icon: [JavaScript],
+  },
+  {
+    name: "React",
+    icon: [React],
+  },
+  {
+    name: "Tailwind",
+    icon: [Tailwind],
+  },
+  {
+    name: "NextJS",
+    icon: [Next],
+  },
+  {
+    name: "Astro",
+    icon: [AstroIcon],
+  },
+  {
+    name: "NodeJS",
+    icon: [Node],
+  },
+  {
+    name: "ExpressJS",
+    icon: [Express],
+  },
+  {
+    name: "Java",
+    icon: [Java],
+  },
+  {
+    name: "SpringBoot",
+    icon: [Springboot],
+  },
+  {
+    name: "PostgreSQL",
+    icon: [PostgreSQL],
+  },
+  {
+    name: "Prisma",
+    icon: [Prisma],
+  },
+  {
+    name: "Figma",
+    icon: [Figma],
+  },
+  {
+    name: "Git",
+    icon: [Git],
+  },
+  {
+    name: "GitHub",
+    icon: [GithubIcon],
+  },
+];
+---
+
+<section
+  class="min-h-full bg-[#111] border-t-1 border-neutral-900 flex flex-col items-center"
+>
+  <div class="w-[60%] flex justify-center items-center flex-col">
+    <h2 class="text-5xl font-medium tracking-tight mt-20">
+      <span class="title text-transparent animate-gradient">Tecnologías</span>
+    </h2>
+
+    <div class="grid grid-cols-4 mt-10 gap-4">
+      {techs.map((item) => <TechGrid name={item.name} icon={item.icon} />)}
+    </div>
+  </div>
+</section>
