@@ -1,12 +1,31 @@
 ---
 const { name, icon } = Astro.props;
+
+const colors: Record<string, string> = {
+  HTML: "bg-[#f16529]",
+  CSS: "bg-[#663399]",
+  JavaScript: "bg-[#f0db4f]",
+  React: "bg-[#61DAFB]",
+  Tailwind: "bg-[#257299]",
+  NextJS: "bg-[#383838]",
+  Astro: "bg-[#e53aa2]",
+  NodeJS: "bg-[#5dae47]",
+  ExpressJS: "bg-[#aaaaaa]",
+  Java: "bg-[#007396]",
+  SpringBoot: "bg-[#6DB33F]",
+  PostgreSQL: "bg-[#4169E1]",
+  Prisma: "bg-[#2D3748]",
+  Figma: "bg-[#0ace82]",
+  Git: "bg-[#F05032]",
+  GitHub: "bg-[#383838]",
+};
 ---
 
 <div
-  class="w-50 h-40 bg-transparent border-[1px] border-neutral-800 rounded-2xl flex flex-col gap-2 justify-center items-center hover:from-neutral-900 hover:to-transparent transition-all relative group"
+  class="w-50 h-40 bg-transparent border-[1px] border-neutral-800 rounded-2xl flex flex-col gap-2 justify-center items-center relative group overflow-hidden"
 >
   <div
-    class="absolute opacity-0 bg-linear-to-t from-neutral-900 to-transparent hover:opacity-100 transition-all inset-0 w-full h-full rounded-2xl group-hover:opacity-100"
+    class={`absolute ${colors[name]} inset-0 w-full h-full rounded-2xl opacity-0 blur-xl tech`}
   >
   </div>
   <div class="z-10 flex flex-col justify-center items-center gap-2">
@@ -14,3 +33,28 @@ const { name, icon } = Astro.props;
     {icon && icon.map((Icon: any) => <Icon size={64} />)}
   </div>
 </div>
+
+<script>
+  import gsap from "gsap";
+
+  const techItems = document.querySelectorAll(".tech");
+  const tl = gsap.timeline({ repeat: -1 });
+
+  techItems.forEach((item) => {
+    tl.to(
+      item,
+      {
+        duration: 0.5,
+        autoAlpha: 0.3,
+      },
+      `-=0.3`,
+    ).to(
+      item,
+      {
+        autoAlpha: 0,
+        duration: 0.5,
+      },
+      `+=0.5`,
+    );
+  });
+</script>
