@@ -36,9 +36,13 @@ const colors: Record<string, string> = {
 
 <script>
   import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
 
   const techItems = document.querySelectorAll(".tech");
-  const tl = gsap.timeline({ repeat: -1 });
+  const techContainer = document.querySelector(".tech-container");
+  const tl = gsap.timeline({ repeat: -1, paused: true });
 
   techItems.forEach((item) => {
     tl.to(
@@ -56,5 +60,15 @@ const colors: Record<string, string> = {
       },
       `+=0.5`,
     );
+  });
+
+  ScrollTrigger.create({
+    trigger: techContainer,
+    start: "top bottom",
+    end: "bottom top",
+    onEnter: () => tl.play(),
+    onLeave: () => tl.pause(),
+    onEnterBack: () => tl.play(),
+    onLeaveBack: () => tl.pause(),
   });
 </script>
