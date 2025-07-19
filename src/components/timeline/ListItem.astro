@@ -5,10 +5,10 @@ import { Image } from "astro:assets";
 const { description, image, alt, href, icon } = Astro.props;
 ---
 
-<li class="relative flex gap-4 w-full justify-between">
+<li class="relative flex flex-col lg:flex-row gap-4 w-full justify-between">
   <div class="flex">
     <div
-      class="before:absolute before:left-[8.5px] before:h-full before:w-[1px] before:bg-neutral-400 before:-z-10"
+      class="before:content-[''] before:absolute before:left-[8.5px] before:h-full before:w-[1px] before:bg-neutral-400 before:-z-10"
     >
       <span class="text-5xl text-yellow-300">•</span>
     </div>
@@ -22,8 +22,8 @@ const { description, image, alt, href, icon } = Astro.props;
     </div>
   </div>
   <div class="text-white flex justify-center items-baseline gap-16 mb-16 mt-2">
-    <div class="w-[70ch] flex-col">
-      <p class="text-lg text-[#ddd] text-balance">
+    <div class="w-[20ch] sm:w-[40ch] lg:w-[70ch] flex-col">
+      <p class="text-base sm:text-lg text-[#ddd] text-balance">
         {description}
       </p>
       <a
@@ -33,7 +33,7 @@ const { description, image, alt, href, icon } = Astro.props;
         >Saber más<ChevronRight size={18} /></a
       >
       <div
-        class="w-[80%] overflow-hidden rounded-xl mt-6 border-1 border-gray-600 hover:scale-x-101 hover:scale-y-101 transition-all duration-400"
+        class="w-full lg:w-[80%] overflow-hidden rounded-xl mt-6 border-1 border-gray-600 hover:scale-x-101 hover:scale-y-101 transition-all duration-400"
       >
         <Image
           src={image}

@@ -88,12 +88,16 @@ const techs = [
 <section
   class="min-h-full bg-linear-to-b from-black to-[#222] border-t-1 border-neutral-900 flex flex-col items-center"
 >
-  <div class="w-[60%] flex justify-center items-center flex-col">
+  <div
+    class="w-[80%] md:w-[60%] flex justify-center items-center flex-col mb-20"
+  >
     <h2 class="text-5xl font-medium tracking-tight mt-20">
       <span class="title text-transparent animate-gradient">Tecnologías</span>
     </h2>
 
-    <div class="grid grid-cols-4 mt-10 gap-4">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-10 gap-4 tech-container"
+    >
       {techs.map((item) => <TechGrid name={item.name} icon={item.icon} />)}
     </div>
   </div>

@@ -8,14 +8,21 @@ import GithubIcon from "../../assets/iconos/GithubIcon.astro";
 ---
 
 <main
-  class="text-white flex justify-center items-center gap-12 h-full relative"
+  class="text-white flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12 h-full relative"
 >
+  <Image
+    src={Avatar}
+    alt="Avatar de Angel"
+    width={150}
+    height={150}
+    class="rounded-full sm:hidden"
+  />
   <div class="flex flex-col gap-2 opacity-0" id="hero-text">
     <h1 class="text-5xl">
       Hola, soy <span class="font-bold text-blue-400">Angel</span>
     </h1>
-    <p class="text-2xl italic text-end">FullStack Developer</p>
-    <div class="flex justify-end items-center gap-4 mt-2">
+    <p class="text-2xl italic text-center sm:text-end">FullStack Developer</p>
+    <div class="flex sm:justify-end justify-center items-center gap-4 mt-2">
       <a
         href="https://github.com/angeltorres02"
         target="_blank"
@@ -38,7 +45,7 @@ import GithubIcon from "../../assets/iconos/GithubIcon.astro";
     alt="Avatar de Angel"
     width={150}
     height={150}
-    class="rounded-full"
+    class="hidden sm:block sm:rounded-full"
   />
 
   <div class="absolute bottom-10 flex flex-col items-center gap-2">
@@ -54,7 +61,6 @@ import GithubIcon from "../../assets/iconos/GithubIcon.astro";
 
   const heroText = document.getElementById("hero-text");
 
-  // Hacer visible el contenedor primero
   gsap.set(heroText, { opacity: 1 });
 
   let split = SplitText.create("#hero-text", { type: "chars" });
